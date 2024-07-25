@@ -117,4 +117,14 @@ firebase-exports
 # Environment variables
 .env.dev
 .env.stg
+<<<<<<< Updated upstream
 .env.prod
+=======
+.env.prod
+
+# Ignore test coverage data
+coverage/lcov.info
+
+# Flutter build_runner generated files
+**/*.g.dart
+>>>>>>> Stashed changes

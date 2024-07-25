@@ -4,15 +4,17 @@
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
+    
     {
-      "name": "Launch",
+      "name": "Debug ECOMMERCE APP",
       "request": "launch",
       "type": "dart",
       "program": "lib/main.dart",
       "args": [
         "--target",
         "lib/main.dart"
-      ]
+      ],
+      "deviceId": "chrome"
     }
   ]
 }
