@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
 
-import 'package:ecommerce_app/src/features/authentication/presentation/account/account_screen.dart';
-import 'package:ecommerce_app/src/features/authentication/presentation/sign_in/email_password_sign_in_screen.dart';
-import 'package:ecommerce_app/src/features/authentication/presentation/sign_in/email_password_sign_in_state.dart';
-import 'package:ecommerce_app/src/features/cart/presentation/shopping_cart/shopping_cart_screen.dart';
+import 'package:ecommerce_app/src/features/authentication/ui/account/account_screen.dart';
+import 'package:ecommerce_app/src/features/authentication/ui/sign_in/email_password_sign_in_screen.dart';
+import 'package:ecommerce_app/src/features/authentication/ui/sign_in/email_password_sign_in_state.dart';
+import 'package:ecommerce_app/src/features/cart/ui/shopping_cart/shopping_cart_screen.dart';
 import 'package:ecommerce_app/src/features/checkout/presentation/checkout_screen/checkout_screen.dart';
-import 'package:ecommerce_app/src/features/orders/presentation/orders_list/orders_list_screen.dart';
-import 'package:ecommerce_app/src/features/products/presentation/product_screen/product_screen.dart';
-import 'package:ecommerce_app/src/features/products/presentation/products_list/products_list_screen.dart';
-import 'package:ecommerce_app/src/features/reviews/presentation/leave_review_screen/leave_review_screen.dart';
+import 'package:ecommerce_app/src/features/orders/ui/orders_list/orders_list_screen.dart';
+import 'package:ecommerce_app/src/features/products/ui/product_screen/product_screen.dart';
+import 'package:ecommerce_app/src/features/products/ui/products_list/products_list_screen.dart';
+import 'package:ecommerce_app/src/features/reviews/ui/leave_review_screen/leave_review_screen.dart';
 import 'package:ecommerce_app/src/routing/app_routes.dart';
 import 'package:ecommerce_app/src/routing/not_found_screen.dart';
 

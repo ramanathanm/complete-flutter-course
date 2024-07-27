@@ -1,5 +1,5 @@
 import 'package:ecommerce_app/src/constants/test_products.dart';
-import 'package:ecommerce_app/src/features/products/domain/product.dart';
+import 'package:ecommerce_app/src/features/products/data/product.dart';
 
 class FakeProductsRepository {
   FakeProductsRepository._();

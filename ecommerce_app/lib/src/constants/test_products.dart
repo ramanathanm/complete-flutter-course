@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/src/features/products/domain/product.dart';
+import 'package:ecommerce_app/src/features/products/data/product.dart';
 
 /// Test products to be used until a data source is implemented
 const kTestProducts = [
