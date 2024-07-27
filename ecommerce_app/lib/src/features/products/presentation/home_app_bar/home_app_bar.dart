@@ -1,12 +1,14 @@
+import 'package:flutter/material.dart';
+
+import 'package:go_router/go_router.dart';
+
+import 'package:ecommerce_app/src/common_widgets/action_text_button.dart';
 import 'package:ecommerce_app/src/constants/breakpoints.dart';
+import 'package:ecommerce_app/src/features/authentication/domain/app_user.dart';
 import 'package:ecommerce_app/src/features/products/presentation/home_app_bar/more_menu_button.dart';
 import 'package:ecommerce_app/src/features/products/presentation/home_app_bar/shopping_cart_icon.dart';
 import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
-import 'package:ecommerce_app/src/features/authentication/domain/app_user.dart';
-import 'package:ecommerce_app/src/routing/app_router.dart';
-import 'package:flutter/material.dart';
-import 'package:ecommerce_app/src/common_widgets/action_text_button.dart';
-import 'package:go_router/go_router.dart';
+import 'package:ecommerce_app/src/routing/app_routes.dart';
 
 /// Custom [AppBar] widget that is reused by the [ProductsListScreen] and
 /// [ProductScreen].
@@ -46,18 +48,18 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
             ActionTextButton(
               key: MoreMenuButton.ordersKey,
               text: 'Orders'.hardcoded,
-              onPressed: () => context.goNamed(AppRoute.orders.name),
+              onPressed: () => context.goNamed(AppRoutes.orders.name),
             ),
             ActionTextButton(
               key: MoreMenuButton.accountKey,
               text: 'Account'.hardcoded,
-              onPressed: () => context.goNamed(AppRoute.account.name),
+              onPressed: () => context.goNamed(AppRoutes.account.name),
             ),
           ] else
             ActionTextButton(
               key: MoreMenuButton.signInKey,
               text: 'Sign In'.hardcoded,
-              onPressed: () => context.goNamed(AppRoute.signIn.name),
+              onPressed: () => context.goNamed(AppRoutes.signIn.name),
             )
         ],
       );

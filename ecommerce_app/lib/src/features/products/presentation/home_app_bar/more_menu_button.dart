@@ -1,8 +1,10 @@
-import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
-import 'package:ecommerce_app/src/routing/app_router.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommerce_app/src/features/authentication/domain/app_user.dart';
+
 import 'package:go_router/go_router.dart';
+
+import 'package:ecommerce_app/src/features/authentication/domain/app_user.dart';
+import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
+import 'package:ecommerce_app/src/routing/app_routes.dart';
 
 enum PopupMenuOption {
   signIn,
@@ -51,13 +53,13 @@ class MoreMenuButton extends StatelessWidget {
         // push to different routes based on selected option
         switch (option) {
           case PopupMenuOption.signIn:
-            context.goNamed(AppRoute.signIn.name);
+            context.goNamed(AppRoutes.signIn.name);
             break;
           case PopupMenuOption.orders:
-            context.goNamed(AppRoute.orders.name);
+            context.goNamed(AppRoutes.orders.name);
             break;
           case PopupMenuOption.account:
-            context.goNamed(AppRoute.account.name);
+            context.goNamed(AppRoutes.account.name);
             break;
         }
       },

@@ -12,7 +12,8 @@
       "args": [
         "--target",
         "lib/main.dart"
-      ]
+      ],
+      "deviceId": "chrome"
     }
   ]
 }
