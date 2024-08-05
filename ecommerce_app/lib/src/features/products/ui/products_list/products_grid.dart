@@ -3,23 +3,26 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_layout_grid/flutter_layout_grid.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import 'package:ecommerce_app/src/common_widgets/error_message_widget.dart';
 import 'package:ecommerce_app/src/constants/app_sizes.dart';
-import 'package:ecommerce_app/src/features/products/data/fake_products_repository.dart';
+import 'package:ecommerce_app/src/features/products/data/products_repository.dart';
 import 'package:ecommerce_app/src/features/products/ui/products_list/product_card.dart';
 import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
 import 'package:ecommerce_app/src/routing/app_routes.dart';
 
 /// A widget that displays the list of products that match the search query.
-class ProductsGrid extends StatelessWidget {
+class ProductsGrid extends ConsumerWidget {
   const ProductsGrid({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    // TODO: Read from data source
-    final products = FakeProductsRepository.instance.getProductsList();
-    return products.isEmpty
+  Widget build(BuildContext context, WidgetRef ref) {
+    final products = ref.watch(productsFutureRepositoryProvider);
+
+    return products.when(
+      data: (products) => products.isEmpty
         ? Center(
             child: Text(
               'No products found'.hardcoded,
@@ -38,7 +41,10 @@ class ProductsGrid extends StatelessWidget {
                 ),
               );
             },
-          );
+          ),
+      error: (error, stackTrace) => ErrorMessageWidget(e.toString()),
+      loading: () => const Center(child: CircularProgressIndicator()),
+    );
   }
 }
 

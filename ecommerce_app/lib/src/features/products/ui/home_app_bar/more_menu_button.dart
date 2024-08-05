@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
 
-import 'package:ecommerce_app/src/features/authentication/data/app_user.dart';
+import 'package:ecommerce_app/src/features/authentication/model/app_user.dart';
 import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
 import 'package:ecommerce_app/src/routing/app_routes.dart';
 
