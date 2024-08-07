@@ -1,13 +1,19 @@
-import 'package:ecommerce_app/src/features/authentication/model/app_user.dart';
-import 'package:ecommerce_app/src/features/authentication/repository/authentication_repository.dart';
-import 'package:ecommerce_app/src/utils/inmemory_store.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'mock_authentication_repository.g.dart';
+import 'package:ecommerce_app/src/features/authentication/model/app_user.dart';
+import 'package:ecommerce_app/src/features/authentication/repository/authentication_repository.dart';
+import 'package:ecommerce_app/src/utils/delay.dart';
+import 'package:ecommerce_app/src/utils/inmemory_store.dart';
 
-class _MockAuthenticationRepository implements AuthenticationRepository {
+part 'fake_authentication_repository.g.dart';
+
+class FakeAuthenticationRepository implements AuthenticationRepository {
+  FakeAuthenticationRepository({
+    this.addDelay = true,
+  });
 
   final _authState = InmemoryStore<AppUser?>(null);
+  final bool addDelay;
 
   @override
   AppUser? get currentUser => _authState.value;
@@ -19,12 +25,12 @@ class _MockAuthenticationRepository implements AuthenticationRepository {
 
   @override
   Future<void> registerWithEmailAndPassword({required String email, required String password}) async {
-    _createUser(email);
+    return await _createUser(email);
   }
 
   @override
   Future<void> signInWithEmailAndPassword({required String email, required String password}) async {
-    _createUser(email);
+    return await _createUser(email);
   }
 
   @override
@@ -36,7 +42,9 @@ class _MockAuthenticationRepository implements AuthenticationRepository {
   @override
   void dispose() => _authState.close();
 
-  void _createUser(String email) {
+  Future<void> _createUser(String email) async {
+    await delay(addDelay);
+
     if (currentUser == null) {
       _authState.value = AppUser(email: email, uid: email.split('').reversed.join());
     }
@@ -44,6 +52,6 @@ class _MockAuthenticationRepository implements AuthenticationRepository {
 }
 
 @Riverpod(keepAlive: true)
-AuthenticationRepository mockAuthenticationRepository(MockAuthenticationRepositoryRef ref) {
-  return _MockAuthenticationRepository();
+AuthenticationRepository fakeAuthenticationRepository(FakeAuthenticationRepositoryRef ref) {
+  return FakeAuthenticationRepository();
 }

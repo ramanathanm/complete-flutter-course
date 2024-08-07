@@ -1,13 +1,13 @@
 
-import 'package:ecommerce_app/src/features/products/data/mock_products_repository.dart';
+import 'package:ecommerce_app/src/features/products/data/fake_products_repository.dart';
 import 'package:ecommerce_app/src/features/products/data/product.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'products_repository.g.dart';
 
 @riverpod
-MockProductsRepository productsRepository(ProductsRepositoryRef ref) {
-  return MockProductsRepository();
+FakeProductsRepository productsRepository(ProductsRepositoryRef ref) {
+  return FakeProductsRepository();
 }
 
 @riverpod

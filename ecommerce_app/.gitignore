@@ -121,3 +121,6 @@ firebase-exports
 
 # FVM Version Cache
 .fvm/
+
+# Flutter code coverage
+coverage/lcov.info

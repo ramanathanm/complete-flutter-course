@@ -1,26 +1,25 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'product.freezed.dart';
+part 'product.g.dart';
+
 /// * The product identifier is an important concept and can have its own type.
 typedef ProductID = String;
 
 /// Class representing a product.
-class Product {
-  const Product({
-    required this.id,
-    required this.imageUrl,
-    required this.title,
-    required this.description,
-    required this.price,
-    required this.availableQuantity,
-    this.avgRating = 0,
-    this.numRatings = 0,
-  });
+@freezed
+class Product with _$Product {
+  // Constructor for a product.
+  const factory Product({
+    required ProductID id,
+    required String imageUrl,
+    required String title,
+    required String description,
+    required double price,
+    required int availableQuantity,
+    @Default(0) double avgRating,
+    @Default(0) int numRatings,
+  }) = _Product;
 
-  /// Unique product id
-  final ProductID id;
-  final String imageUrl;
-  final String title;
-  final String description;
-  final double price;
-  final int availableQuantity;
-  final double avgRating;
-  final int numRatings;
+  factory Product.fromJson(Map<String, dynamic> json) => _$ProductFromJson(json);
 }

@@ -1,10 +1,16 @@
-/// Simple class representing the user UID and email.
-class AppUser {
-  const AppUser({
-    required this.uid,
-    this.email,
-  });
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  final String uid;
-  final String? email;
+/// Simple class representing the user UID and email.
+
+part 'app_user.freezed.dart';
+part 'app_user.g.dart';
+
+@freezed
+class AppUser with _$AppUser {
+  const factory AppUser({
+    required String uid,
+    required String email,
+  }) = _AppUser;
+
+  factory AppUser.fromJson(Map<String, dynamic> json) => _$AppUserFromJson(json);
 }

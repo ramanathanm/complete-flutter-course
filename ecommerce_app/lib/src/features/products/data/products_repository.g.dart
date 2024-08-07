@@ -7,12 +7,12 @@ part of 'products_repository.dart';
 // **************************************************************************
 
 String _$productsRepositoryHash() =>
-    r'e99fe656510a96ce24203ba14e21694f8ac631c9';
+    r'9ef28fadafa0bbc95a441246a1db2d09da3b7699';
 
 /// See also [productsRepository].
 @ProviderFor(productsRepository)
 final productsRepositoryProvider =
-    AutoDisposeProvider<MockProductsRepository>.internal(
+    AutoDisposeProvider<FakeProductsRepository>.internal(
   productsRepository,
   name: r'productsRepositoryProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -22,7 +22,7 @@ final productsRepositoryProvider =
   allTransitiveDependencies: null,
 );
 
-typedef ProductsRepositoryRef = AutoDisposeProviderRef<MockProductsRepository>;
+typedef ProductsRepositoryRef = AutoDisposeProviderRef<FakeProductsRepository>;
 String _$productsFutureRepositoryHash() =>
     r'5617be1c2c9e337ad5e2f29dee7d236916d9c049';
 

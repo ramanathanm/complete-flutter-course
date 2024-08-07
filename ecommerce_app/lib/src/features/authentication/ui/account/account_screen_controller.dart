@@ -7,7 +7,9 @@ part 'account_screen_controller.g.dart';
 @riverpod
 class AccountScreenController extends _$AccountScreenController {
   @override
-  FutureOr<void> build() {}
+  FutureOr<void> build() {
+    state = const AsyncData(null);
+  }
 
   Future<bool> signOut() async {
     final authRepository = ref.read(authenticationRepositoryProvider);

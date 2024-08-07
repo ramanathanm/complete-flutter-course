@@ -3,7 +3,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:ecommerce_app/src/features/authentication/repository/authentication_provider.dart';
 import 'package:ecommerce_app/src/features/authentication/ui/sign_in/email_password_signin_type.dart';
 
-part 'email_password_sign_in_controller.g.dart';
+part 'email_password_signin_controller.g.dart';
 
 @riverpod
 class EmailPasswordSignInController extends _$EmailPasswordSignInController {
