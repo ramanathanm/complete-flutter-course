@@ -121,3 +121,6 @@ firebase-exports
 
 # Ignore test coverage data
 coverage/lcov.info
+
+#FVM
+.fvm
