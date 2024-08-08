@@ -1,12 +1,25 @@
-
 import 'package:ecommerce_app/src/features/products/data/fake_products_repository.dart';
 import 'package:ecommerce_app/src/features/products/data/product.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'products_repository.g.dart';
 
+abstract class ProductRepository {
+  List<Product> getProducts();
+
+  Product? getProductById(String id);
+
+  Future<List<Product>> fetchProducts();
+
+  Future<Product?> fetchProductById(String id);
+
+  Stream<List<Product>> watchProducts();
+
+  Stream<Product?> watchProductById(String id);
+}
+
 @riverpod
-FakeProductsRepository productsRepository(ProductsRepositoryRef ref) {
+ProductRepository productsRepository(ProductsRepositoryRef ref) {
   return FakeProductsRepository();
 }
 

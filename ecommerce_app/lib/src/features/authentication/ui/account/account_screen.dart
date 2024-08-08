@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 import 'package:ecommerce_app/src/common_widgets/action_text_button.dart';
 import 'package:ecommerce_app/src/common_widgets/alert_dialogs.dart';
@@ -30,7 +29,6 @@ class AccountScreen extends ConsumerWidget {
           ActionTextButton(
             text: 'Logout'.hardcoded,
             onPressed: () async {
-              final goRouter = GoRouter.of(context);
               final logout = await showAlertDialog(
                 context: context,
                 title: 'Are you sure?'.hardcoded,
@@ -38,8 +36,7 @@ class AccountScreen extends ConsumerWidget {
                 defaultActionText: 'Logout'.hardcoded,
               );
               if (logout == true) {
-                final success = await ref.read(accountScreenControllerProvider.notifier).signOut();
-                if (success) goRouter.pop();
+                await ref.read(accountScreenControllerProvider.notifier).signOut();
               }
             },
           ),

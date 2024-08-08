@@ -7,8 +7,8 @@ import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
 /// Mixin class to be used for client-side email & password validation
 mixin EmailAndPasswordValidators {
   final StringValidator emailSubmitValidator = EmailSubmitRegexValidator();
-  final StringValidator passwordRegisterSubmitValidator = MinLengthStringValidator(8);
-  final StringValidator passwordSignInSubmitValidator = NonEmptyStringValidator();
+  final StringValidator passwordRegisterSubmitValidator = MinLengthStringValidator(5);
+  final StringValidator passwordSignInSubmitValidator = MinLengthStringValidator(5);
 
   bool canSubmitEmail(String email) {
     return emailSubmitValidator.isValid(email);
