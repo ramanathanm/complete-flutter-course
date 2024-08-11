@@ -3,23 +3,29 @@ import 'package:ecommerce_app/src/features/authentication/repository/authenticat
 import 'package:ecommerce_app/src/features/authentication/repository/firebase_authentication_repository.dart';
 import 'package:ecommerce_app/src/features/authentication/repository/fake_authentication_repository.dart';
 import 'package:ecommerce_app/src/utils/app_context.dart';
+import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'authentication_provider.g.dart';
 
 @Riverpod(keepAlive: true)
 AuthenticationRepository authenticationRepository(AuthenticationRepositoryRef ref) {
-  final authenticationRepository = AppContext.isMocked()
-      ? ref.watch(fakeAuthenticationRepositoryProvider)
-      : ref.watch(firebaseAuthenticationProvider);
+  final fakeAuthRepository = ref.watch(fakeAuthenticationRepositoryProvider);
+  final firebaseAuthRepository = ref.watch(firebaseAuthenticationProvider);
 
-  ref.onDispose(() => authenticationRepository.dispose());
+  final authRepository = AppContext.isMocked() ? fakeAuthRepository : firebaseAuthRepository;
 
-  return authenticationRepository;
+  ref.onDispose(() => authRepository.dispose());
+
+  return authRepository;
 }
 
 @Riverpod(keepAlive: true)
 Stream<AppUser?> authStateChanges(AuthStateChangesRef ref) {
-  final authenticationRepository = ref.watch(authenticationRepositoryProvider);
-  return authenticationRepository.authStateChanges();
+  debugPrint('authStateChangesProvider created');
+  final authRepository = ref.watch(authenticationRepositoryProvider);
+  return authRepository.authStateChanges().map((user) {
+    debugPrint('authStateChangesProvider emitted: $user');
+    return user;
+  });
 }

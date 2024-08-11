@@ -7,7 +7,7 @@ part of 'firebase_authentication_repository.dart';
 // **************************************************************************
 
 String _$firebaseAuthenticationHash() =>
-    r'ed0af745dacc4f6c20a86573b912f5daa354c178';
+    r'2d38288e27e4617f0d2476dcf617edaade8e4112';
 
 /// See also [firebaseAuthentication].
 @ProviderFor(firebaseAuthentication)

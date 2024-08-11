@@ -7,7 +7,7 @@ part of 'authentication_provider.dart';
 // **************************************************************************
 
 String _$authenticationRepositoryHash() =>
-    r'2f185e6bdb94f782215ebb63e38ad883f2abe0d1';
+    r'893be57436ba1034bfd4a28d0b7db193fb38a276';
 
 /// See also [authenticationRepository].
 @ProviderFor(authenticationRepository)
@@ -23,7 +23,7 @@ final authenticationRepositoryProvider =
 );
 
 typedef AuthenticationRepositoryRef = ProviderRef<AuthenticationRepository>;
-String _$authStateChangesHash() => r'c9443ea07d6c85e353763fb208f6f4309d89dec4';
+String _$authStateChangesHash() => r'120dd7db5d16511f5c3328ce06970c948b6e330c';
 
 /// See also [authStateChanges].
 @ProviderFor(authStateChanges)

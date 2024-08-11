@@ -7,7 +7,7 @@ part of 'fake_authentication_repository.dart';
 // **************************************************************************
 
 String _$fakeAuthenticationRepositoryHash() =>
-    r'67f3b3d4c24adc8511a3d21fdb1190e9786f3573';
+    r'93a4ca5bd5a9d8716cc5a6e60979e63f7d92860c';
 
 /// See also [fakeAuthenticationRepository].
 @ProviderFor(fakeAuthenticationRepository)

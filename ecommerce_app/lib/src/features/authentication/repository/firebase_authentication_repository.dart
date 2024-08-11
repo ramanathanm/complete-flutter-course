@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:ecommerce_app/src/features/authentication/model/app_user.dart';
@@ -42,5 +43,6 @@ class _FirebaseAuthenticationRepository implements AuthenticationRepository {
 
 @Riverpod(keepAlive: true)
 AuthenticationRepository firebaseAuthentication(FirebaseAuthenticationRef ref) {
+  debugPrint('firebaseAuthenticationProvider created');
   return _FirebaseAuthenticationRepository();
 }

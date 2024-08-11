@@ -21,9 +21,11 @@ part 'app_router.g.dart';
 
 @riverpod
 GoRouter goRouter(GoRouterRef ref) {
+  final authRepository = ref.watch(authenticationRepositoryProvider);
+
   return GoRouter(
     initialLocation: '/',
-    debugLogDiagnostics: true,
+    debugLogDiagnostics: false,
 
     // Do not remove this comment - this helps with VS code formatting to retain neccessary line breaks line breaks
     routes: [
@@ -119,9 +121,7 @@ GoRouter goRouter(GoRouterRef ref) {
       return null;
     },
 
-    refreshListenable: GoRouterRefreshStream(
-      ref.read(authenticationRepositoryProvider).authStateChanges(),
-    ),
+    refreshListenable: GoRouterRefreshStream(authRepository.authStateChanges()),
 
     errorBuilder: (context, state) => const NotFoundScreen(),
   );

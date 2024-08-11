@@ -34,3 +34,9 @@ Future<Product?> productFutureRepository(ProductFutureRepositoryRef ref, String 
   final productsRepository = ref.watch(productsFutureRepositoryProvider);
   return productsRepository.value!.firstWhere((product) => product.id == id);
 }
+
+@riverpod
+Stream<List<Product>> productStream(ProductStreamRef ref) {
+  final productsRepository = ref.watch(productsRepositoryProvider);
+  return productsRepository.watchProducts();
+}
